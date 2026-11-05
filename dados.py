@@ -35,3 +35,12 @@ def consultar_ranking() -> list[dict]:
     """Devolve o ranking de vendas como lista de dicionários."""
     with closing(abrir_conexao()) as conn:
         return [dict(linha) for linha in conn.execute(QUERY_RANKING)]
+
+
+def buscar_usuario(login: str):
+    """Devolve a linha do usuário (ou None se não existir)."""
+    with closing(abrir_conexao()) as conn:
+        return conn.execute(
+            "SELECT login, senha_hash, salt FROM Usuario WHERE login = ?;",
+            (login,),
+        ).fetchone()

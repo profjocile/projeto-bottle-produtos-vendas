@@ -17,6 +17,8 @@
 </head>
 <body>
   <h1>Painel e ranking de vendas</h1>
+
+    <p>Sessão ativa: <strong>{{ usuario }}</strong> · <a href="/logout">Sair</a></p>
  
   <div class="card-grafico">
     <img src="/static/ranking_vendas.png" alt="Gráfico de barras com a quantidade vendida por produto">
